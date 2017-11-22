@@ -1,0 +1,23 @@
+{
+  "name": "LearnNodeJS",
+  "version": "1.0.0",
+  "description": "This NodeJS project is used to learn NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FanciestW/NodeWebsite.git"
+  },
+  "author": "William Lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FanciestW/NodeWebsite/issues"
+  },
+  "homepage": "https://github.com/FanciestW/NodeWebsite#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
