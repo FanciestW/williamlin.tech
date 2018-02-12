@@ -1,5 +1,5 @@
 {
-  "name": "LearnNodeJS",
+  "name": "williamlin.tech",
   "version": "1.0.0",
   "description": "This NodeJS project is used to learn NodeJS",
   "main": "app.js",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
     "angular": "^1.6.6",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
     "serve-favicon": "^2.4.5"
