@@ -15,6 +15,10 @@ app.get('/style/style.css', function(req, res){
     res.sendFile(path.join(__dirname + '/style/style.css'));
 });
 
+app.get('/script/script.js', function(req, res){
+    res.sendFile(path.join(__dirname + '/script/script.js'));
+})
+
 app.get('/img/profile_pic.jpg', function(req, res){
     res.sendFile(path.join(__dirname + '/img/profile_pic.jpg'));
 });

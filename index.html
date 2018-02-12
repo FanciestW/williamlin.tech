@@ -12,127 +12,178 @@
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </style>
 <body class="w3-light-grey">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/script/script.js"></script>
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
-
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
-    
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <img src="img/profile_pic.jpg" style="width:100%" alt="Avatar">
-        </div>
-        <div class="w3-container">
-            <p class="w3-xxlarge" style="margin-top: 5px; margin-bottom: 0px"><i class="fa fa-user fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>William Lin</p>
-            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Engineer</p>
-            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Shelton, CT</p>
-            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>wlin26@yahoo.com</p>
-            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>(917) 434-8023</p>
-            <hr>
-
-            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-            <p>C/C++</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+    <!-- Send Email Message Modal -->
+    <div id="sendEmailForm" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+        
+            <div class="w3-center"><br>
+            <span onclick="document.getElementById('sendEmailForm').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
             </div>
-            <p>Android</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-                <div class="w3-center w3-text-white">80%</div>
+        
+            <form class="w3-container w3-text-teal" method="post" action="/sendmail">
+                <h2 class="w3-text-grey w3-center">Email Me</h2>
+ 
+                <div class="w3-row w3-section">
+                <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                    <input class="w3-input w3-border" name="first" type="text" placeholder="John Doe">
+                    </div>
+                </div>
+
+                <div class="w3-row w3-section">
+                <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+                    <div class="w3-rest">
+                        <input class="w3-input w3-border" name="email" type="text" placeholder="Your Email">
+                    </div>
+                </div>
+
+                <div class="w3-row w3-section">
+                <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+                    <div class="w3-rest">
+                        <textarea class="w3-input w3-border" name="message" rows="10" style="resize:none;" placeholder="Message"></textarea>
+                    </div>
+                </div>
+
+                <!-- <div class="w3-section">
+                    <label><b>Your Full Name:</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="John Doe" name="usrname" required>
+                    <label><b>Your Email Address:</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="email" placeholder="john.doe@example.com" name="psw" required>
+                    <label><b>Your Message:</b></label>
+                </div> -->
+            </form>
+        
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="document.getElementById('sendEmailForm').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+            <button type="button" class="w3-button w3-teal w3-right">Send</button>
+            </div>
+        
+        </div>
+    </div>
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+    
+        <!-- Left Column -->
+        <div class="w3-third">
+        
+        <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container">
+            <img src="img/profile_pic.jpg" style="width:100%" alt="Avatar">
+            </div>
+            <div class="w3-container">
+                <p class="w3-xxlarge" style="margin-top: 5px; margin-bottom: 0px"><i class="fa fa-user fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>William Lin</p>
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Engineer</p>
+                <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Shelton, CT</p>
+                <p id="emailBtn"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>wlin26@yahoo.com</p>
+                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>(917) 434-8023</p>
+                <hr>
+
+                <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                <p>C/C++</p>
+                <div class="w3-light-grey w3-round-xlarge w3-small">
+                    <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+                </div>
+                <p>Android</p>
+                <div class="w3-light-grey w3-round-xlarge w3-small">
+                    <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+                    <div class="w3-center w3-text-white">80%</div>
+                    </div>
+                </div>
+                <p>Web Development</p>
+                <div class="w3-light-grey w3-round-xlarge w3-small">
+                    <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
+                </div>
+                <p>Ethical Hacking</p>
+                <div class="w3-light-grey w3-round-xlarge w3-small">
+                    <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+                </div>
+                <br>
+
+                <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+                <p>English</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                    <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                </div>
+                <p>Chinese</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                    <div class="w3-round-xlarge w3-teal" style="height:24px;width:90%"></div>
+                </div>
+                <br>
+            </div>
+        </div><br>
+
+        <!-- End Left Column -->
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+        
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-user-circle fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Who Am I?</h2>
+                <div class="w3-container" style="margin-top: -4%;">
+                    <p>A software engineer, student, programmer, coder, hacker. I love coding and being a part of the software developer community. You can find me at hackathons hacking away at code and pulling all-nighters. I love contributing to projects and facing new challenges.</p>
                 </div>
             </div>
-            <p>Web Development</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
-            </div>
-            <p>Ethical Hacking</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
-            </div>
-            <br>
 
-            <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-            <p>English</p>
-            <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>Lead Software Engineer - SoluTech Inc.</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2017 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                    <p>SoluTech is a college dorm room startup that my friends and I started. As the lead software engineer I am responsible for over seeing the development of the product. Through my past experience of Agile software development, I implement Agile into the software development process at SoluTech. My day consists of meeting with the team to learn what they are doing and what they have done. We would then continue to work on our assigned tasks. I was also responsible for researching and developing many of the new technologies that would be used in the end product of SoluTech. At the end of the day, I am still a software engineer and do what all software engineers do. I submit and do code reviews, and write readable code so my fellow developers can work with my code efficiently with little confusion.</p>
+                    <hr>
+                </div>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>Software Engineer - Abbott Jewelry Systems Inc.</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oct 2013 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                    <p>I developed software in VB.net for retail management. I develop and test code before submitting it for a code review. After my code is reviewed successfully, it is committed to the codebase. I also code review my peer's code to make sure that I can also read the code that I haven't wrote. This allows me to understand more about the software even if I was not working on that particular part. I practiced Agile software development with daily standups and code sprints.</p>
+                    <hr>
+                </div>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>IT Technician - Self Employed</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Aug 2015 - Aug 2017</h6>
+                    <p>I started my own business offering IT and Computer services to the Great New Haven Area. I have worked on home offices, dentist offices, and more. Some services that I have have done include but are not limited to: computer security, software installation, office network installation, building computer, and more. </p><br>
+                </div>
             </div>
-            <p>Chinese</p>
-            <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-round-xlarge w3-teal" style="height:24px;width:90%"></div>
+
+            <div class="w3-container w3-card w3-white">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>University of New Haven - </b> <i><span class="avoidwrap">B.S. Computer Science</span></i></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2015 - 2019</h6>
+                    <hr>
+                </div>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>Independent Software - </b> <span class="avoidwrap"><i>A100 Certified Software Developer</i></span></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2015 - 2016</h6>
+                    <hr>
+                </div>
             </div>
-            <br>
+
+        <!-- End Right Column -->
         </div>
-      </div><br>
-
-    <!-- End Left Column -->
-    </div>
-
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-user-circle fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Who Am I?</h2>
-            <div class="w3-container" style="margin-top: -4%;">
-                <p>A software engineer, student, programmer, coder, hacker. I love coding and being a part of the software developer community. You can find me at hackathons hacking away at code and pulling all-nighters. I love contributing to projects and facing new challenges.</p>
-            </div>
-        </div>
-
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>Lead Software Engineer - SoluTech Inc.</b></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2017 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-                <p>SoluTech is a college dorm room startup that my friends and I started. As the lead software engineer I am responsible for over seeing the development of the product. Through my past experience of Agile software development, I implement Agile into the software development process at SoluTech. My day consists of meeting with the team to learn what they are doing and what they have done. We would then continue to work on our assigned tasks. I was also responsible for researching and developing many of the new technologies that would be used in the end product of SoluTech. At the end of the day, I am still a software engineer and do what all software engineers do. I submit and do code reviews, and write readable code so my fellow developers can work with my code efficiently with little confusion.</p>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>Software Engineer - Abbott Jewelry Systems Inc.</b></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oct 2013 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-                <p>I developed software in VB.net for retail management. I develop and test code before submitting it for a code review. After my code is reviewed successfully, it is committed to the codebase. I also code review my peer's code to make sure that I can also read the code that I haven't wrote. This allows me to understand more about the software even if I was not working on that particular part. I practiced Agile software development with daily standups and code sprints.</p>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>IT Technician - Self Employed</b></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Aug 2015 - Aug 2017</h6>
-                <p>I started my own business offering IT and Computer services to the Great New Haven Area. I have worked on home offices, dentist offices, and more. Some services that I have have done include but are not limited to: computer security, software installation, office network installation, building computer, and more. </p><br>
-            </div>
-        </div>
-
-        <div class="w3-container w3-card w3-white">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>University of New Haven - </b> <i><span class="avoidwrap">B.S. Computer Science</span></i></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2015 - 2019</h6>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h5 class="w3-opacity"><b>Independent Software - </b> <span class="avoidwrap"><i>A100 Certified Software Developer</i></span></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2015 - 2016</h6>
-                <hr>
-            </div>
-        </div>
-
-    <!-- End Right Column -->
+        
+    <!-- End Grid -->
     </div>
     
-  <!-- End Grid -->
-  </div>
-  
-  <!-- End Page Container -->
-</div>
+    <!-- End Page Container -->
+    </div>
 
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-    <p>Find me on social media.</p>
-    <a href="https://github.com/FanciestW" target="_blank"><i class="fa fa-3x fa-github footer_socialmedia w3-hover-opacity"></i></a>
-    <a href="https://linkedin.com/in/FanciestW" target="_blank"><i class="fa fa-3x fa-linkedin footer_socialmedia w3-hover-opacity"></i>
-    <a href="https://facebook.com/FanciestW" target="_blank"><i class="fa fa-3x fa-facebook-official footer_socialmedia w3-hover-opacity"></i></a>
-    <a href="https://twitter.com/wlin2512" target="_blank"><i class="fa fa-3x fa-twitter footer_socialmedia w3-hover-opacity"></i></a></a>
-    <p>© <script>document.write(new Date().getFullYear());</script> William Lin. All rights reserved.</p>
-</footer>
+    <footer class="w3-container w3-teal w3-center w3-margin-top">
+        <p>Find me on social media.</p>
+        <a href="https://github.com/FanciestW" target="_blank"><i class="fa fa-3x fa-github footer_socialmedia w3-hover-opacity"></i></a>
+        <a href="https://linkedin.com/in/FanciestW" target="_blank"><i class="fa fa-3x fa-linkedin footer_socialmedia w3-hover-opacity"></i>
+        <a href="https://facebook.com/FanciestW" target="_blank"><i class="fa fa-3x fa-facebook-official footer_socialmedia w3-hover-opacity"></i></a>
+        <a href="https://twitter.com/wlin2512" target="_blank"><i class="fa fa-3x fa-twitter footer_socialmedia w3-hover-opacity"></i></a></a>
+        <p>© <script>document.write(new Date().getFullYear());</script> William Lin. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
