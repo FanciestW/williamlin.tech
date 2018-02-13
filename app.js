@@ -29,17 +29,18 @@ app.get('/img/profile_pic.jpg', function(req, res){
     res.sendFile(path.join(__dirname + '/img/profile_pic.jpg'));
 });
 
-app.post('/', function(req, res) {
-    var senderName = req.body.name;
-    var senderEmail = req.body.email;
-    var senderMessage = req.body.message;
+app.post('/sendemail', function(req, res) {
+    // var senderName = req.body.name;
+    // var senderEmail = req.body.email;
+    // var senderMessage = req.body.message;
 
-    console.log(senderName);
-    console.log(senderEmail);
-    console.log(senderMessage);
+    // console.log(senderName);
+    // console.log(senderEmail);
+    // console.log(senderMessage);
 
     sendEmailToMe(senderName, senderEmail, senderMessage);
-    res.redirect('/');
+    res.redirect("/");
+    // res.sendFile(path.join(__dirname + '/index.html'));
   });
 
 app.listen(PORT, function(){
