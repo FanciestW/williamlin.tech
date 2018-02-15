@@ -3,6 +3,10 @@ $(document).ready(function(){
         $("#sendEmailForm").css('display', 'block');
     });
 
+    $("#btnEmailMe").on("click", function(){
+        $("#sendEmailForm").css('display', 'block');
+    });
+
     $("#btnMessageSend").on("click", function(){
         $("#emailMessageForm").submit();
     });

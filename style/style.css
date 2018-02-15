@@ -1,8 +1,11 @@
-span.avoidwrap{
+span.avoidwrap {
     display: inline-block;
 }
 
-.footer_socialmedia{
+.footer_socialmedia {
     margin-left: 8px;
     margin-right: 8px;
+}
+
+#btnEmailMe {
 }
