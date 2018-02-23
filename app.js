@@ -38,10 +38,6 @@ app.post('/sendemail', function(req, res) {
     var senderEmail = req.body.email;
     var senderMessage = req.body.message;
 
-    console.log(senderName);
-    console.log(senderEmail);
-    console.log(senderMessage);
-
     sendEmailToMe(senderName, senderEmail, senderMessage);
     res.redirect('/');
   });
