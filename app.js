@@ -17,6 +17,10 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get('/index.html', function(req, res){
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+
 app.get('/style/style.css', function(req, res){
     res.sendFile(path.join(__dirname + '/style/style.css'));
 });
@@ -30,17 +34,16 @@ app.get('/img/profile_pic.jpg', function(req, res){
 });
 
 app.post('/sendemail', function(req, res) {
-    // var senderName = req.body.name;
-    // var senderEmail = req.body.email;
-    // var senderMessage = req.body.message;
+    var senderName = req.body.name;
+    var senderEmail = req.body.email;
+    var senderMessage = req.body.message;
 
-    // console.log(senderName);
-    // console.log(senderEmail);
-    // console.log(senderMessage);
+    console.log(senderName);
+    console.log(senderEmail);
+    console.log(senderMessage);
 
     sendEmailToMe(senderName, senderEmail, senderMessage);
-    res.redirect("/");
-    // res.sendFile(path.join(__dirname + '/index.html'));
+    res.redirect('/');
   });
 
 app.listen(PORT, function(){
