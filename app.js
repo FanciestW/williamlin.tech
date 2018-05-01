@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 const sgMail = require('@sendgrid/mail');
 const app = express();
 
-const PORT = 8080;
+const PORT = 80;
 
 app.use(favicon(__dirname + '/img/favicon.ico'));
 
