@@ -1,5 +1,7 @@
 sendgrid.env
 
+.well-known
+
 .vscode/
 .vscode/*
 !.vscode/settings.json
