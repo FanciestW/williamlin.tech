@@ -10,6 +10,9 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
+//app.use(redirectToHTTPS([/localhost:(\d{4})/], 301));
+
 app.use(favicon(__dirname + '/img/favicon.ico'));
 
 app.use(bodyParser.urlencoded({ extended: false })) 
@@ -17,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname, { dotfiles: 'allow' } ));
+
+app.use(redirectToHTTPS([],[], 301));
 
 // Certificate
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/williamlin.tech/privkey.pem', 'utf8');
@@ -28,10 +33,6 @@ const credentials = {
 	cert: certificate,
 	ca: ca
 };
-
-app.use((req, res) => {
-	res.send('Hello there !');
-});
 
 // Starting both http & https servers
 const httpServer = http.createServer(app);
