@@ -11,7 +11,6 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
-//app.use(redirectToHTTPS([/localhost:(\d{4})/], 301));
 
 app.use(favicon(__dirname + '/img/favicon.ico'));
 
@@ -34,9 +33,25 @@ const credentials = {
 	ca: ca
 };
 
+const sendmailPost = {
+    hostname: 'williamlin.tech',
+    port: 443,
+    path: '/sendemail',
+    method: 'POST'
+};
+
 // Starting both http & https servers
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
+
+const req = https.request(sendmailPost, (res) => {
+    console.log('statusCode:', res.statusCode);
+    console.log('headers:', res.headers);
+
+    res.on('data', (d) => {
+        process.stdout.write(d);
+    });
+});
 
 httpServer.listen(80, () => {
 	console.log('HTTP Server running on port 80');
