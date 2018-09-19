@@ -53,6 +53,12 @@ const req = https.request(sendmailPost, (res) => {
     });
 });
 
+req.on('error', (e) => {
+    console.log(e);
+});
+
+req.end();
+
 httpServer.listen(80, () => {
 	console.log('HTTP Server running on port 80');
 });
