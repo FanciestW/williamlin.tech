@@ -18,8 +18,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname, { dotfiles: 'allow' } ));
-
 app.use(redirectToHTTPS([],[], 301));
 
 // Certificate
@@ -33,31 +31,9 @@ const credentials = {
 	ca: ca
 };
 
-const sendmailPost = {
-    hostname: 'williamlin.tech',
-    port: 443,
-    path: '/sendemail',
-    method: 'POST'
-};
-
 // Starting both http & https servers
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
-
-const req = https.request(sendmailPost, (res) => {
-    console.log('statusCode:', res.statusCode);
-    console.log('headers:', res.headers);
-
-    res.on('data', (d) => {
-        process.stdout.write(d);
-    });
-});
-
-req.on('error', (e) => {
-    console.log(e);
-});
-
-req.end();
 
 httpServer.listen(80, () => {
 	console.log('HTTP Server running on port 80');
