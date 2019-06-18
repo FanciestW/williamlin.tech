@@ -1,5 +1,9 @@
 sendgrid.env
 
+package-lock.json
+
+.well-known
+
 .vscode/
 .vscode/*
 !.vscode/settings.json
