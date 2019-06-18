@@ -10,39 +10,15 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
-
 app.use(favicon(__dirname + '/img/favicon.ico'));
 
 app.use(bodyParser.urlencoded({ extended: false })) 
 
 app.use(bodyParser.json());
 
-app.use(redirectToHTTPS([],[], 301));
-
-// Certificate
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/williamlin.tech/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/williamlin.tech/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/williamlin.tech/chain.pem', 'utf8');
-
-const credentials = {
-	key: privateKey,
-	cert: certificate,
-	ca: ca
-};
-
-// Starting both http & https servers
-const httpServer = http.createServer(app);
-const httpsServer = https.createServer(credentials, app);
-
-httpServer.listen(80, () => {
-	console.log('HTTP Server running on port 80');
+app.listen(PORT, function(){
+    console.log('Listing on ' + PORT);
 });
-
-httpsServer.listen(443, () => {
-	console.log('HTTPS Server running on port 443');
-});
-
 
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname + '/index.html'));
