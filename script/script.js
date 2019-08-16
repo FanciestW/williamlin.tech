@@ -8,7 +8,8 @@ $(document).ready(function(){
     });
 
     $("#btnMessageSend").on("click", function(){
-        $("#emailMessageForm").submit();
+        // TODO::Send POST request to sendMeMail API.
+        $("#sendEmailForm").css('display', 'none');
     });
 
     // Get the modal
