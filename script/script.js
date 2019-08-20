@@ -8,7 +8,9 @@ $(document).ready(function(){
     });
 
     $("#btnMessageSend").on("click", function(){
-        // TODO::Send POST request to sendMeMail API.
+        var message = $("#emailFormMessage").val();
+        var senderName = $("#emailFormSenderName").val();
+        var senderEmail = $("#emailFormSenderEmail").val();
         $("#sendEmailForm").css('display', 'none');
     });
 
