@@ -8,9 +8,24 @@ $(document).ready(function(){
     });
 
     $("#btnMessageSend").on("click", function(){
-        var message = $("#emailFormMessage").val();
+        var emailMessage = $("#emailFormMessage").val();
         var senderName = $("#emailFormSenderName").val();
         var senderEmail = $("#emailFormSenderEmail").val();
+        req = {
+            cache: false,
+            dataType: 'json',
+            async: true,
+            crossDomain: true,
+            xhrFields: {
+                withCredentials: true
+            },
+            url: 'https://608y0baaza.execute-api.us-east-1.amazonaws.com/dev',
+            method: 'POST'
+        };
+        $.ajax(req).done(function(res) {
+            console.log('Response:');
+            console.log(res);
+        });
         $("#sendEmailForm").css('display', 'none');
     });
 
