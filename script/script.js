@@ -19,7 +19,7 @@ $(document).ready(function(){
             xhrFields: {
                 withCredentials: true
             },
-            url: 'https://608y0baaza.execute-api.us-east-1.amazonaws.com/dev',
+            url: 'https://608y0baaza.execute-api.us-east-1.amazonaws.com/dev/email',
             method: 'POST'
         };
         $.ajax(req).done(function(res) {
