@@ -7,6 +7,12 @@ span.avoidwrap {
     margin-right: 8px;
 }
 
+#senderNameError, #senderEmailError, #messageError {
+    color: #FF0000;
+    font-size: 12px;
+    display: none;
+}
+
 #sendEmailErrorMessage {
     color: #FF0000;
     font-size: 12px;

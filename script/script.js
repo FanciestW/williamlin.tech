@@ -50,16 +50,28 @@ function validateSendEmailForm() {
 
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (!emailRegex.test(senderEmail)) {
-        $('#sendEmailErrorMessage').text('* Invalid Email');
+        $('#senderEmailError').text('* Invalid Email.');
+        $('#senderEmailError').css('display', 'block');
         isValid &= false;
     } else {
-        $('#sendEmailErrorMessage').text('');
+        $('#senderEmailError').text('');
+        $('#senderEmailError').css('display', 'none');
     }
     if (!message) {
+        $('#messageError').text('* Please write something.');
+        $('#messageError').css('display', 'block');
         isValid &= false;
+    } else {
+        $('#messageError').text('');
+        $('#messageError').css('display', 'none');
     }
     if (!senderName) {
+        $('#senderNameError').text('* Please provide your name.');
+        $('#senderNameError').css('display', 'block');
         isValid &= false;
+    } else {
+        $('#senderNameError').text('');
+        $('#senderNameError').css('display', 'none');
     }
     return isValid;
 }

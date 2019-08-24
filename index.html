@@ -34,6 +34,7 @@
           <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
           <div class="w3-rest">
             <input id="emailFormSenderName" class="w3-input w3-border" name="name" type="text" placeholder="John Doe" required>
+            <div id="senderNameError"></div>
           </div>
         </div>
 
@@ -41,6 +42,7 @@
           <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
           <div class="w3-rest">
             <input id="emailFormSenderEmail" class="w3-input w3-border" name="email" type="email" placeholder="Your Email" required>
+            <div id="senderEmailError"></div>
           </div>
         </div>
 
@@ -48,13 +50,13 @@
           <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
           <div class="w3-rest">
             <textarea id="emailFormMessage" class="w3-input w3-border" name="message" rows="10" style="resize:none;" placeholder="Message" required></textarea>
+            <div id="messageError"></div>
           </div>
         </div>
       </form>
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
         <button type="button" id="btnMessageClose" class="w3-button w3-red">Cancel</button>
-        <p id="sendEmailErrorMessage"></p>
         <button type="button" id="btnMessageSend" class="w3-button w3-teal w3-right">Send</button>
       </div>
 
