@@ -1,8 +1,14 @@
 $(document).ready(function(){
+
+    // Set copyright text in footer.
+    const year = new Date().getFullYear();
+    const copyright = "© " + year + " William Lin. All rights reserved.";
+    $("#copyright").text(copyright);
+
     $("#emailBtn").on("click", function(){
         $("#sendEmailForm").css('display', 'block');
     });
-
+    
     $("#btnEmailMe").on("click", function(){
         $("#sendEmailForm").css('display', 'block');
     });
