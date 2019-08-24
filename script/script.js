@@ -1,12 +1,7 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-    $("#emailBtn").on("click", function(){
-        $("#sendEmailForm").css('display', 'block');
-    });
-    
-    $("#btnEmailMe").on("click", function(){
-        $("#sendEmailForm").css('display', 'block');
-    });
+    $("#emailBtn, #btnEmailMe").on("click", openSendEmailModal);
+    $("#btnMessageClose, #sendEmailClose").on("click", closeSendEmailModal);
 
     // Send message via sendMeMail API.
     $("#btnMessageSend").on("click", function(){
@@ -25,13 +20,18 @@ $(document).ready(function(){
         $("#sendEmailForm").css('display', 'none');
     });
 
-    // Get the modal
-    var modal = document.getElementById('sendEmailForm');
-
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == document.getElementById('sendEmailForm')) {
+            closeSendEmailModal();
         }
     }
 });
+
+function openSendEmailModal() {
+    $("#sendEmailForm").css('display', 'block');
+}
+
+function closeSendEmailModal() {
+    $("#sendEmailForm").css('display', 'none');
+}
