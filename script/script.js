@@ -13,24 +13,19 @@ $(document).ready(function(){
         $("#sendEmailForm").css('display', 'block');
     });
 
+    // Send message via sendMeMail API.
     $("#btnMessageSend").on("click", function(){
         var emailMessage = $("#emailFormMessage").val();
         var senderName = $("#emailFormSenderName").val();
         var senderEmail = $("#emailFormSenderEmail").val();
-        req = {
-            cache: false,
-            dataType: 'json',
-            async: true,
-            crossDomain: true,
-            xhrFields: {
-                withCredentials: true
-            },
-            url: 'https://608y0baaza.execute-api.us-east-1.amazonaws.com/dev/email',
-            method: 'POST'
-        };
-        $.ajax(req).done(function(res) {
-            console.log('Response:');
-            console.log(res);
+
+        body = JSON.stringify({
+            message: emailMessage,
+            email: senderEmail,
+            name: senderName,
+        });
+        $.post('https://608y0baaza.execute-api.us-east-1.amazonaws.com/dev/email', body).done(function(data) {
+            console.log(data);
         });
         $("#sendEmailForm").css('display', 'none');
     });
