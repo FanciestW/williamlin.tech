@@ -1,0 +1,1 @@
+aws s3 sync . s3://williamlin.tech --exclude 'node_modules/*' --exclude 'deploy.sh' --exclude '.git/*' --exclude '.gitignore' --exclude 'README.md'
