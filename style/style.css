@@ -33,10 +33,11 @@ span.avoidwrap {
     margin: 5px 10px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
     .captcha-notice {
-      width: 100%;
-      font-size: 8px;
+      width: 50%;
+      font-size: 7px;
+      margin: 10px 5px 0 0;
     }
   }
 
