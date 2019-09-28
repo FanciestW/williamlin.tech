@@ -44,6 +44,7 @@ function sendMail(captchaToken) {
     });
     $.post('https://608y0baaza.execute-api.us-east-1.amazonaws.com/dev/email', body).done(function(data) {
         console.log(data);
+        // TODO::Validate errors and let users know.
     });
     $('#sendEmailForm').css('display', 'none');
 }
