@@ -3,26 +3,8 @@ $(document).ready(function() {
     $('#emailBtn, #btnEmailMe').on('click', openSendEmailModal);
     $('#btnMessageClose, #sendEmailClose').on('click', closeSendEmailModal);
 
-    // Send message via sendMeMail API.
     $('#btnMessageSend').on('click', function(){
-        
-        if (!validateSendEmailForm()) {
-            return false;
-        }
-
-        const emailMessage = $('#emailFormMessage').val();
-        const senderName = $('#emailFormSenderName').val();
-        const senderEmail = $('#emailFormSenderEmail').val();
-
-        body = JSON.stringify({
-            message: emailMessage,
-            email: senderEmail,
-            name: senderName,
-        });
-        $.post('https://608y0baaza.execute-api.us-east-1.amazonaws.com/dev/email', body).done(function(data) {
-            console.log(data);
-        });
-        $('#sendEmailForm').css('display', 'none');
+        if (validateSendEmailForm()) grecaptcha.execute();
     });
 
     // When the user clicks anywhere outside of the modal, close it
@@ -38,6 +20,31 @@ function openSendEmailModal() {
 }
 
 function closeSendEmailModal() {
+    $('#sendEmailForm').css('display', 'none');
+}
+
+function onCaptchaCallback(token) {
+    sendMail(token);
+}
+
+function sendMail(captchaToken) {
+    if (!validateSendEmailForm()) {
+        return false;
+    }
+
+    const emailMessage = $('#emailFormMessage').val();
+    const senderName = $('#emailFormSenderName').val();
+    const senderEmail = $('#emailFormSenderEmail').val();
+
+    body = JSON.stringify({
+        message: emailMessage,
+        email: senderEmail,
+        name: senderName,
+        captcha: captchaToken,
+    });
+    $.post('https://608y0baaza.execute-api.us-east-1.amazonaws.com/dev/email', body).done(function(data) {
+        console.log(data);
+    });
     $('#sendEmailForm').css('display', 'none');
 }
 

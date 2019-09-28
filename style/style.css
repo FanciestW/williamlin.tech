@@ -1,3 +1,7 @@
+body {
+    min-width: 300px;
+}
+
 span.avoidwrap {
     display: inline-block;
 }
@@ -18,4 +22,33 @@ span.avoidwrap {
     font-size: 12px;
     display: inline;
     margin-left: 20px;
+}
+
+.captcha-notice {
+    font-size: 10px;
+    color: rgb(169, 169, 169);
+    display: inline-block;
+    width: 255px;
+    text-align: right;
+    margin: 5px 10px;
+}
+
+@media only screen and (max-width: 400px) {
+    .captcha-notice {
+      width: 100%;
+      font-size: 8px;
+    }
+  }
+
+.captcha-notice > a:hover {
+    color: blue;
+    opacity: .6;
+}
+
+.g-recaptcha {
+    display: inline;
+}
+
+.grecaptcha-badge {
+    visibility: hidden;
 }
