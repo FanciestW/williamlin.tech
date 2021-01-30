@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/fanciestw
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://williamlin.tech
+  * I am fanciestw (https://keybase.io/fanciestw) on keybase.
+  * I have a public key ASA6hNOBmrn_7erRDrPTpDxmsPnMqMUnMXjxLVg8IUPC-wo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d22e97e6b519fb7066f22ef5823dbb738a3ed8998b4394a31f21af1e24d4249c0a",
+      "host": "keybase.io",
+      "kid": "01203a84d3819ab9ffedead10eb3d3a43c66b0f9cca8c5273178f12d583c2143c2fb0a",
+      "uid": "b5ea4ca8be754466decc5e4d6065d619",
+      "username": "fanciestw"
+    },
+    "merkle_root": {
+      "ctime": 1612040388,
+      "hash": "7277f20bc06be686de25b1464cb782d7e8a3a88e61425ea09cb20c6f2b8a1a7932e5c3da1bb782d9bde282b5fd34006c9ed70373e1ba82d68225a2a7f4026a81",
+      "hash_meta": "92424079a5121fdef12491208c3188e3b55d690db817824b3c4fed63d1ab5577",
+      "seqno": 18959710
+    },
+    "service": {
+      "entropy": "j0Cn09hxMb1PNHZLjD5hdfMm",
+      "hostname": "williamlin.tech",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.0"
+  },
+  "ctime": 1612040426,
+  "expire_in": 504576000,
+  "prev": "bc056e7bba498467aa08ee42e68d59d030b7253d80b06f492d54832e808ef66a",
+  "seqno": 27,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgOoTTgZq5/+3q0Q6z06Q8ZrD5zKjFJzF48S1YPCFDwvsKp3BheWxvYWTESpcCG8QgvAVue7pJhGeqCO5C5o1Z0DC3JT2AsG9JLVSDLoCO9mrEIIWXDzMccE1YmSWPaJ7RTKMAPR6dj3LhxLi8mmQrlTsTAgHCo3NpZ8RAFTsv1w7ORNqBtLRzPZTN7nkbho74cZlVHxufroTD/rKzUCMkJcgS+rb21bemBqJ094p7Npy9jcFemWodcEzXCqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIDUWKNCri6pxuPwMNbe2GpSM7RmA5gVGVmXVUdbqa2WJo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/fanciestw
+
+==================================================================
